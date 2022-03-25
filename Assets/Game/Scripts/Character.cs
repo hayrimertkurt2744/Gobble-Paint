@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
 
     private void Awake()
     {
-        currentMaterial = GetComponent<MeshRenderer>().material;
+        currentMaterial = GetComponent<MeshRenderer>().materials[0];
+        print(currentMaterial.name);
     }
 }

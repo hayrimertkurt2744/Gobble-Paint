@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.GetComponent<Character>() != null)
         {
+            print("bulundu");
             Character targetCharaterInstance = other.GetComponent<Character>();
             Character charaterInstance = GetComponent<Character>();
             
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour
                 GameManager.Instance.onCharacterTake?.Invoke(currentAmount);
                 
                 print(charaterInstance.characterFood);
+                print(charaterInstance.currentMaterial.name);
+                print(targetCharaterInstance.currentMaterial.name);
                 Destroy(other.gameObject);
             }
             else if (targetCharaterInstance.currentCharacterID == Character.CharacterID.Stack && 
@@ -77,6 +80,8 @@ public class PlayerController : MonoBehaviour
                 GameManager.Instance.onCharacterTake?.Invoke(currentAmount);
 
                 print(charaterInstance.characterFood);
+                print(charaterInstance.currentMaterial.name);
+                print(targetCharaterInstance.currentMaterial.name);
                 Destroy(other.gameObject);
             }
         }
