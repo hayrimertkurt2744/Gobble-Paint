@@ -54,34 +54,31 @@ public class PlayerController : MonoBehaviour
 
         if (other.GetComponent<Character>() != null)
         {
-            print("bulundu");
             Character targetCharaterInstance = other.GetComponent<Character>();
-            Character charaterInstance = GetComponent<Character>();
+            Character characterInstance = GetComponent<Character>();
             
             if (targetCharaterInstance.currentCharacterID == Character.CharacterID.Stack &&
-                targetCharaterInstance.currentMaterial.name == charaterInstance.currentMaterial.name)
+                targetCharaterInstance.currentMaterial.name == characterInstance.currentMaterial.name)
             {
-                int currentAmount = charaterInstance.characterFood;
+                int currentAmount = characterInstance.characterFood;
                 currentAmount++;
-                charaterInstance.characterFood = currentAmount;
+                characterInstance.characterFood = currentAmount;
                 GameManager.Instance.onCharacterTake?.Invoke(currentAmount);
                 
-                print(charaterInstance.characterFood);
-                print(charaterInstance.currentMaterial.name);
-                print(targetCharaterInstance.currentMaterial.name);
+                print(characterInstance.characterFood);
+                print(characterInstance.currentMaterial.name);
                 Destroy(other.gameObject);
             }
             else if (targetCharaterInstance.currentCharacterID == Character.CharacterID.Stack && 
-                     targetCharaterInstance.currentMaterial.name != charaterInstance.currentMaterial.name)
+                     targetCharaterInstance.currentMaterial.name != characterInstance.currentMaterial.name)
             {
-                int currentAmount = charaterInstance.characterFood;
+                int currentAmount = characterInstance.characterFood;
                 currentAmount--;
-                charaterInstance.characterFood = currentAmount;
+                characterInstance.characterFood = currentAmount;
                 GameManager.Instance.onCharacterTake?.Invoke(currentAmount);
 
-                print(charaterInstance.characterFood);
-                print(charaterInstance.currentMaterial.name);
-                print(targetCharaterInstance.currentMaterial.name);
+                print(characterInstance.characterFood);
+                print(characterInstance.currentMaterial.name);
                 Destroy(other.gameObject);
             }
         }

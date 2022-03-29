@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class GateController : MonoBehaviour
 {
-    public Material greenColor;
-    public Material orangeColor;
-    public Material pinkColor;
+    public Material[] gateColors;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Character>().currentCharacterID == Character.CharacterID.Player)
+        if (other.GetComponentInChildren<Character>().currentCharacterID == Character.CharacterID.Player)
         {
             print("değdi");
         }
